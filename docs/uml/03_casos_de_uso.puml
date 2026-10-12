@@ -1,0 +1,108 @@
+@startuml 03_casos_de_uso
+' NextLeague · Casos de uso (fuente editable de 03a, 03b y 03c)
+left to right direction
+
+actor "Visitante\n(público)" as visitante
+actor Participante as participante
+actor Organizador as organizador
+actor Administrador as admin
+participante --|> visitante
+organizador --|> participante
+admin --|> organizador
+
+rectangle "Sistema NextLeague" {
+  usecase "CU-01 Ver la portada y las estadísticas" as CU01
+  usecase "CU-02 Explorar y buscar torneos" as CU02
+  usecase "CU-03 Ver un torneo (calendario, posiciones y llaves)" as CU03
+  usecase "CU-04 Ver el calendario y los resultados" as CU04
+  usecase "CU-05 Ver el perfil público de un jugador o equipo" as CU05
+  usecase "CU-06 Registrarse" as CU06
+  usecase "CU-07 Iniciar sesión" as CU07
+  usecase "CU-08 Recuperar la contraseña" as CU08
+  usecase "Mantener la sesión (Recordarme)" as RECORDARME
+
+  usecase "CU-09 Editar el perfil y la foto" as CU09
+  usecase "CU-10 Cambiar la contraseña" as CU10
+  usecase "CU-11 Inscribirse en un torneo" as CU11
+  usecase "CU-12 Darse de baja" as CU12
+  usecase "CU-13 Crear un equipo" as CU13
+  usecase "CU-14 Solicitar unirse a un equipo" as CU14
+  usecase "CU-15 Responder solicitudes (capitán)" as CU15
+  usecase "CU-16 Ver mis torneos y mis partidos" as CU16
+  usecase "CU-17 Cerrar sesión" as CU17
+
+  usecase "CU-18 Crear un torneo" as CU18
+  usecase "CU-19 Editar un torneo" as CU19
+  usecase "CU-20 Publicar u ocultar un torneo" as CU20
+  usecase "CU-21 Inscribir o quitar participantes" as CU21
+  usecase "CU-22 Generar el calendario" as CU22
+  usecase "CU-23 Generar la siguiente ronda (sistema suizo)" as CU23
+  usecase "CU-24 Publicar y cerrar rondas" as CU24
+  usecase "CU-25 Programar un partido (fecha y lugar)" as CU25
+  usecase "CU-26 Cargar un resultado" as CU26
+  usecase "CU-27 Corregir un resultado" as CU27
+  usecase "CU-28 Cancelar un torneo" as CU28
+  usecase "CU-29 Ver el reporte del torneo" as CU29
+  usecase "Actualizar posiciones o avanzar en la llave" as POSICIONES
+  usecase "Finalizar el torneo y cerrar sus rondas" as FINALIZAR
+
+  usecase "CU-30 Ver el resumen del sistema" as CU30
+  usecase "CU-31 Gestionar usuarios" as CU31
+  usecase "CU-32 Asignar el organizador de un torneo" as CU32
+  usecase "CU-33 Autorizar la corrección de resultados" as CU33
+  usecase "CU-34 Habilitar o deshabilitar módulos" as CU34
+  usecase "CU-35 Configurar el sistema" as CU35
+  usecase "CU-36 Consultar la auditoría" as CU36
+  usecase "CU-37 Exportar reportes (CSV)" as CU37
+  usecase "Registrar el evento en la auditoría" as REGISTRAR
+}
+
+visitante --> CU01
+visitante --> CU02
+visitante --> CU03
+visitante --> CU04
+visitante --> CU05
+visitante --> CU06
+visitante --> CU07
+visitante --> CU08
+RECORDARME .> CU07 : <<extend>>
+
+participante --> CU09
+participante --> CU10
+participante --> CU11
+participante --> CU12
+participante --> CU14
+participante --> CU15
+participante --> CU16
+participante --> CU17
+CU13 .> CU11 : <<extend>>
+
+organizador --> CU18
+organizador --> CU19
+organizador --> CU20
+organizador --> CU21
+organizador --> CU22
+organizador --> CU24
+organizador --> CU25
+organizador --> CU26
+organizador --> CU28
+organizador --> CU29
+CU23 .> CU22 : <<extend>>
+CU27 .> CU26 : <<extend>>
+CU26 .> POSICIONES : <<include>>
+CU26 .> FINALIZAR : <<include>>
+
+admin --> CU30
+admin --> CU31
+admin --> CU32
+admin --> CU33
+admin --> CU34
+admin --> CU35
+admin --> CU36
+admin --> CU37
+CU31 .> REGISTRAR : <<include>>
+CU32 .> REGISTRAR : <<include>>
+CU33 .> REGISTRAR : <<include>>
+CU34 .> REGISTRAR : <<include>>
+CU35 .> REGISTRAR : <<include>>
+@enduml

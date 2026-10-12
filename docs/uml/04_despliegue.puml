@@ -1,0 +1,41 @@
+@startuml 04_despliegue
+' NextLeague · Diagrama de despliegue (fuente editable del SVG)
+
+node "PC o celular" <<dispositivo>> {
+  component "Navegador web" as navegador
+}
+node "PC del administrador" <<dispositivo>> {
+  component "Cliente SSH" as ssh
+}
+
+node "Servidor AlmaLinux 9" <<servidor>> {
+  component "firewalld\n(abre 80/tcp y 443/tcp)" as firewall
+  node "Docker Engine + Docker Compose" <<entorno de ejecución>> {
+    frame "Red nextleague_red (bridge)" {
+      node "nextleague_web" <<contenedor>> {
+        component "Apache 2.4 + PHP 8.2\n(imagen nextleague-web, raíz public/)" as web
+      }
+      node "nextleague_bd" <<contenedor>> {
+        component "MariaDB 10.11\n(cuentas nl_app y nl_lectura)" as bd
+      }
+      node "nextleague_phpmyadmin" <<contenedor>> {
+        component "phpMyAdmin 5\n(127.0.0.1:8091)" as pma
+      }
+    }
+    storage "nextleague_subidas\n(fotos, logos y reglas)" <<volumen>> as subidas
+    storage "nextleague_almacen\n(sesiones y registros)" <<volumen>> as almacen
+    storage "nextleague_datos_bd\n(datos de MariaDB)" <<volumen>> as datos
+    folder "docker/ssl y database/\n(montadas con :z)" <<montaje>> as montajes
+  }
+}
+
+navegador ..> web : HTTPS 443\n(HTTP 80 redirige)
+web ..> bd : PDO 3306
+pma ..> bd : 3306
+ssh ..> pma : túnel SSH → 127.0.0.1:8091
+web -- subidas
+web -- almacen
+bd -- datos
+web -- montajes
+bd -- montajes
+@enduml

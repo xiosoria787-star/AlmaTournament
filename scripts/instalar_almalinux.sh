@@ -2,8 +2,8 @@
 # =====================================================================
 # INSTALACIÓN DE NEXTLEAGUE EN UN SERVIDOR ALMALINUX (producción, Docker)
 #
-#   git clone -b mejoras-letra <url-del-repositorio> nextleague
-#   cd nextleague
+#   sudo git clone -b nextleague https://github.com/xiosoria787-star/AlmaTournament.git /opt/nextleague
+#   cd /opt/nextleague
 #   sudo bash scripts/instalar_almalinux.sh
 #
 # Instala Docker si hace falta, crea la configuración (.env) con claves

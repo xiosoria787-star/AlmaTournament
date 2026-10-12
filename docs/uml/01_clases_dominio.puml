@@ -1,0 +1,221 @@
+@startuml 01_clases_dominio
+' NextLeague · Diagrama de clases del dominio (fuente editable del SVG)
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+hide empty members
+
+enum Categoria { deportivo
+  mental
+  electronico }
+enum Modalidad { individual
+  equipos }
+enum Moneda { UYU
+  USD }
+enum EstadoTorneo { pendiente
+  en_curso
+  finalizado
+  cancelado }
+enum EstadoRonda { borrador
+  publicada
+  cerrada }
+enum EstadoPartido { pendiente
+  finalizado }
+enum EstadoSolicitud { pendiente
+  aceptada
+  rechazada }
+enum TipoToken { recuperacion
+  recordarme }
+
+class Rol {
+  + id_rol: int
+  + codigo: string
+  + nombre: string
+  + descripcion: string
+  + listar(): array
+  + idPorCodigo(codigo): int
+}
+class Usuario {
+  + id_usuario: int
+  + nombre_usuario: string {único}
+  + correo: string {único}
+  + contrasena_hash: string
+  + foto_perfil: string [0..1]
+  + biografia: string [0..1]
+  + activo: bool
+  + debe_cambiar_contrasena: bool
+  + fecha_registro: datetime
+  + ultimo_acceso: datetime [0..1]
+  + crear(nombre, correo, clave, rol): int
+  + buscarPorCorreo(correo): array
+  + verificarContrasena(id, clave): bool
+  + perfilPublico(id): array
+  + actualizar(id, campos)
+}
+class TokenUsuario {
+  + id_token: int
+  + tipo: TipoToken
+  + selector: string
+  + hash_validador: string
+  + vence: datetime
+  + crear(idUsuario, tipo, minutos)
+  + validar(token, tipo)
+}
+class Juego {
+  + id_juego: int
+  + nombre: string {único}
+  + categoria: Categoria
+  + modalidad_sugerida: Modalidad
+  + icono: string [0..1]
+  + listar(): array
+}
+class Modulo <<liga | eliminacion_directa | sistema_suizo>> {
+  + id_modulo: int
+  + codigo: string {único}
+  + nombre: string
+  + descripcion: string
+  + habilitado: bool
+  + buscarPorCodigo(codigo): array
+  + cambiarHabilitado(id, valor)
+}
+class Torneo {
+  + id_torneo: int
+  + nombre: string
+  + modalidad: Modalidad
+  + cupo: int {2..256}
+  + premio: decimal
+  + moneda: Moneda
+  + fecha_inicio: date
+  + fecha_fin: date
+  + descripcion: string [0..1]
+  + logo: string [0..1]
+  + reglas_pdf: string [0..1]
+  + estado: EstadoTorneo
+  + publicado: bool
+  + fecha_creacion: datetime
+  + crear(datos, configuracion): int
+  + listar(filtros, pagina): array
+  + cambiarEstado(id, estado)
+  + configuracion(id): array
+}
+class ConfiguracionTorneo {
+  + puntos_victoria: int = 3
+  + puntos_empate: int = 1
+  + puntos_derrota: int = 0
+  + ida_y_vuelta: bool
+  + rondas_suizo: int [0..1]
+  + permitir_empates: bool
+  + permitir_correcciones: bool
+  + max_integrantes_equipo: int [0..1]
+}
+class Equipo {
+  + id_equipo: int
+  + nombre: string
+  + logo: string [0..1]
+  + fecha_creacion: datetime
+  + crear(idTorneo, nombre, capitan)
+  + agregarMiembro(idEquipo, idUsuario)
+  + miembros(idEquipo): array
+}
+class EquipoMiembro {
+  + fecha_union: datetime
+}
+class SolicitudEquipo {
+  + id_solicitud: int
+  + estado: EstadoSolicitud
+  + fecha_solicitud: datetime
+  + fecha_respuesta: datetime [0..1]
+  + crear(idEquipo, idUsuario): int
+  + responder(id, estado)
+}
+class Participante <<xor: un usuario o un equipo>> {
+  + id_participante: int
+  + fecha_inscripcion: datetime
+  + inscribirUsuario(idTorneo, idUsuario)
+  + inscribirEquipo(idTorneo, idEquipo)
+}
+class Ronda {
+  + id_ronda: int
+  + numero: int
+  + nombre: string [0..1]
+  + estado: EstadoRonda
+  + fecha: date [0..1]
+  + crear(idTorneo, numero): int
+  + cerrarTodas(idTorneo)
+}
+class Enfrentamiento {
+  + id_enfrentamiento: int
+  + posicion: int
+  + es_pase_libre: bool
+  + fecha_hora: datetime [0..1]
+  + lugar: string [0..1]
+  + estado: EstadoPartido
+  + programar(id, fechaHora, lugar)
+  + finalizar(id, idGanador)
+}
+class Resultado {
+  + id_resultado: int
+  + puntaje_local: int
+  + puntaje_visitante: int
+  + fecha_carga: datetime
+  + vigente: bool
+  + observacion: string [0..1]
+  + cargado_por: Usuario [0..1]
+  + registrar(partido, local, visitante, ...)
+  + historial(idPartido): array
+}
+package "Seguridad, auditoría y configuración" {
+  class Auditoria {
+    + id_auditoria: bigint
+    + fecha: datetime
+    + origen: {bd | app}
+    + accion: string
+    + tabla: string [0..1]
+    + id_registro: string [0..1]
+    + id_usuario: int [0..1]
+    + usuario_bd: string
+    + ip: string [0..1]
+    + valores_anteriores: json
+    + valores_nuevos: json
+    + detalle: string [0..1]
+    + registrarEvento(accion, detalle)
+    + listar(filtros): array
+  }
+  class IntentoLogin {
+    + id_intento: bigint
+    + correo: string
+    + ip: string
+    + exitoso: bool
+    + fecha: datetime
+    + registrar(correo, ip, exitoso)
+    + minutosDeBloqueo(correo, ip)
+  }
+  class ConfiguracionSistema {
+    + clave: string {PK}
+    + valor: string
+    + tipo: {texto | numero | booleano}
+    + descripcion: string
+    + obtener(clave): string
+    + actualizar(valores)
+  }
+}
+
+Rol "1" -- "*" Usuario : tiene
+Usuario "1" *-- "*" TokenUsuario
+Usuario "1" -- "*" Torneo : organiza >
+Juego "1" -- "*" Torneo
+Modulo "1" -- "*" Torneo : formato
+Torneo "1" *-- "1" ConfiguracionTorneo
+Torneo "1" *-- "*" Equipo
+Usuario "0..1" -- "*" Equipo : capitán
+Usuario "*" -- "*" Equipo : integra
+(Usuario, Equipo) .. EquipoMiembro
+Equipo "1" *-- "*" SolicitudEquipo
+Usuario "1" -- "*" SolicitudEquipo : solicita
+Torneo "1" *-- "*" Participante
+Participante "0..1" -- "0..1" Equipo : se inscribe como
+Participante "*" -- "0..1" Usuario : juega como
+Torneo "1" *-- "*" Ronda
+Ronda "1" *-- "*" Enfrentamiento
+Enfrentamiento "*" -- "0..1" Participante : local · visitante · ganador
+Enfrentamiento "1" *-- "*" Resultado : historial
+@enduml

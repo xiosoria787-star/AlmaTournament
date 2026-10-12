@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1820 1240" width="1820" height="1240" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="25.0" y="260.0" width="80.0" height="22.0" rx="2" fill="#efe9fb" stroke="#3b1d6e" stroke-width="1.4"/>
+<rect x="25.0" y="281.0" width="690.0" height="759.0" rx="2" fill="#fbfaff" stroke="#3b1d6e" stroke-width="1.4"/>
+<text x="35.0" y="276.0" font-size="12.5" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">app/core</text>
+<rect x="760.0" y="95.0" width="143.0" height="22.0" rx="2" fill="#efe9fb" stroke="#3b1d6e" stroke-width="1.4"/>
+<rect x="760.0" y="116.0" width="360.0" height="619.0" rx="2" fill="#fbfaff" stroke="#3b1d6e" stroke-width="1.4"/>
+<text x="770.0" y="111.0" font-size="12.5" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">app/controladores</text>
+<rect x="1160.0" y="95.0" width="115.0" height="22.0" rx="2" fill="#efe9fb" stroke="#3b1d6e" stroke-width="1.4"/>
+<rect x="1160.0" y="116.0" width="630.0" height="179.0" rx="2" fill="#fbfaff" stroke="#3b1d6e" stroke-width="1.4"/>
+<text x="1170.0" y="111.0" font-size="12.5" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">app/servicios</text>
+<rect x="1160.0" y="320.0" width="101.0" height="22.0" rx="2" fill="#efe9fb" stroke="#3b1d6e" stroke-width="1.4"/>
+<rect x="1160.0" y="341.0" width="630.0" height="394.0" rx="2" fill="#fbfaff" stroke="#3b1d6e" stroke-width="1.4"/>
+<text x="1170.0" y="336.0" font-size="12.5" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">app/modulos</text>
+<rect x="760.0" y="880.0" width="262.0" height="22.0" rx="2" fill="#efe9fb" stroke="#3b1d6e" stroke-width="1.4"/>
+<rect x="760.0" y="901.0" width="1030.0" height="319.0" rx="2" fill="#fbfaff" stroke="#3b1d6e" stroke-width="1.4"/>
+<text x="770.0" y="896.0" font-size="12.5" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">app/modelos (todo el SQL está acá)</text>
+<text x="40.0" y="44.0" font-size="22" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">NextLeague · Diagrama de clases de la arquitectura</text>
+<text x="40.0" y="68.0" font-size="12.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="start">Patrón MVC con POO en PHP sin frameworks: las vistas piden datos a la API JSON; el router despacha a un controlador; los modelos tienen el SQL y los módulos de competencia aplican el patrón Estrategia.</text>
+<rect x="40.0" y="95.0" width="300.0" height="116.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M40.7,135.0 V98.0 Q40.7,95.7 43.0,95.7 H337.0 Q339.3,95.7 339.3,98.0 V135.0 Z" fill="#ece4ff"/>
+<text x="190.0" y="111.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«componente»</text>
+<text x="190.0" y="127.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Vistas (public/)</text>
+<polyline points="40.0,135.0 340.0,135.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="153.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">home, torneos, perfil, admin, ...</text>
+<text x="49.0" y="169.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*.html + *.css (Mobile First)</text>
+<text x="49.0" y="185.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">shared/api.js: nlApi (fetch + CSRF)</text>
+<text x="49.0" y="201.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">shared/layout.js, ui.js, formato.js</text>
+<rect x="420.0" y="95.0" width="290.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M420.7,135.0 V98.0 Q420.7,95.7 423.0,95.7 H707.0 Q709.3,95.7 709.3,98.0 V135.0 Z" fill="#ece4ff"/>
+<text x="565.0" y="111.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«punto de entrada»</text>
+<text x="565.0" y="127.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">public/api/index.php</text>
+<polyline points="420.0,135.0 710.0,135.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="429.0" y="153.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">Front controller: toda petición</text>
+<text x="429.0" y="169.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">a /api/... llega acá</text>
+<polyline points="340.0,150.0 420.0,150.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="420.0,150.0 409.0,156.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="420.0,150.0 409.0,144.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="380.0" y="142.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">HTTP + JSON</text>
+<rect x="45.0" y="300.0" width="300.0" height="80.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,326.0 V303.0 Q45.7,300.7 48.0,300.7 H342.0 Q344.3,300.7 344.3,303.0 V326.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="318.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Aplicacion</text>
+<polyline points="45.0,326.0 345.0,326.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="45.0,336.0 345.0,336.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="354.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ manejar(peticion): Respuesta</text>
+<text x="54.0" y="370.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ router(): Router</text>
+<rect x="395.0" y="300.0" width="300.0" height="80.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,326.0 V303.0 Q395.7,300.7 398.0,300.7 H692.0 Q694.3,300.7 694.3,303.0 V326.0 Z" fill="#ece4ff"/>
+<text x="545.0" y="318.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Router</text>
+<polyline points="395.0,326.0 695.0,326.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="395.0,336.0 695.0,336.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="404.0" y="354.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ get/post/put/delete(ruta, accion)</text>
+<text x="404.0" y="370.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ despachar(peticion): Respuesta</text>
+<rect x="45.0" y="450.0" width="300.0" height="98.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,476.0 V453.0 Q45.7,450.7 48.0,450.7 H342.0 Q344.3,450.7 344.3,453.0 V476.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="468.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Peticion</text>
+<polyline points="45.0,476.0 345.0,476.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="494.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ metodo, ruta, ip: string</text>
+<polyline points="45.0,504.0 345.0,504.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="522.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ dato(clave) · param(clave)</text>
+<text x="54.0" y="538.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ idRuta(): int · archivo(campo)</text>
+<rect x="395.0" y="450.0" width="300.0" height="144.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,490.0 V453.0 Q395.7,450.7 398.0,450.7 H692.0 Q694.3,450.7 694.3,453.0 V490.0 Z" fill="#ece4ff"/>
+<text x="545.0" y="466.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«abstract»</text>
+<text x="545.0" y="482.0" font-size="13" font-weight="700" font-style="italic" fill="#1f1633" text-anchor="middle">Controlador</text>
+<polyline points="395.0,490.0 695.0,490.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="404.0" y="508.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start"># peticion: Peticion</text>
+<polyline points="395.0,518.0 695.0,518.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="404.0" y="536.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start"># usuario() · idUsuario() · esAdmin()</text>
+<text x="404.0" y="552.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start"># requerirSesion() · requerirRol(...)</text>
+<text x="404.0" y="568.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start"># torneoVisible(id) · torneoGestionable(id)</text>
+<text x="404.0" y="584.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start"># paginacion() · listado(...)</text>
+<rect x="45.0" y="620.0" width="300.0" height="114.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,646.0 V623.0 Q45.7,620.7 48.0,620.7 H342.0 Q344.3,620.7 344.3,623.0 V646.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="638.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Respuesta</text>
+<polyline points="45.0,646.0 345.0,646.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="664.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ estado: int</text>
+<text x="54.0" y="680.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cuerpo: array</text>
+<polyline points="45.0,690.0 345.0,690.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="708.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ exito(mensaje, datos, estado)</text>
+<text x="54.0" y="724.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ error(...) · csv(...) · enviar()</text>
+<rect x="395.0" y="620.0" width="300.0" height="130.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,646.0 V623.0 Q395.7,620.7 398.0,620.7 H692.0 Q694.3,620.7 694.3,623.0 V646.0 Z" fill="#ece4ff"/>
+<text x="545.0" y="638.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">BaseDatos</text>
+<polyline points="395.0,646.0 695.0,646.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="404.0" y="664.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">- pdo: PDO</text>
+<polyline points="395.0,674.0 695.0,674.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="404.0" y="692.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ filas() · fila() · valor()</text>
+<text x="404.0" y="708.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ insertar() · ejecutar()</text>
+<text x="404.0" y="724.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ transaccion(tarea)</text>
+<text x="404.0" y="740.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fijarUsuarioAuditoria(id, ip)</text>
+<rect x="45.0" y="790.0" width="300.0" height="94.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,830.0 V793.0 Q45.7,790.7 48.0,790.7 H342.0 Q344.3,790.7 344.3,793.0 V830.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="806.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«excepción»</text>
+<text x="195.0" y="822.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ErrorHttp</text>
+<polyline points="45.0,830.0 345.0,830.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="45.0,840.0 345.0,840.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="858.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ noAutenticado() · prohibido()</text>
+<text x="54.0" y="874.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ noEncontrado() · conflicto()</text>
+<rect x="45.0" y="930.0" width="300.0" height="78.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,970.0 V933.0 Q45.7,930.7 48.0,930.7 H342.0 Q344.3,930.7 344.3,933.0 V970.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="946.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«excepción»</text>
+<text x="195.0" y="962.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ErrorValidacion</text>
+<polyline points="45.0,970.0 345.0,970.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="45.0,980.0 345.0,980.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="998.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ campo(campo, mensaje)</text>
+<polygon points="195.0,884.0 203.0,899.0 187.0,899.0" fill="#fff" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="195.0,930.0 195.0,899.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="395.0" y="790.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,816.0 V793.0 Q395.7,790.7 398.0,790.7 H532.0 Q534.3,790.7 534.3,793.0 V816.0 Z" fill="#ece4ff"/>
+<text x="465.0" y="808.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Sesion</text>
+<rect x="555.0" y="790.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M555.7,816.0 V793.0 Q555.7,790.7 558.0,790.7 H692.0 Q694.3,790.7 694.3,793.0 V816.0 Z" fill="#ece4ff"/>
+<text x="625.0" y="808.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Csrf</text>
+<rect x="395.0" y="842.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,868.0 V845.0 Q395.7,842.7 398.0,842.7 H532.0 Q534.3,842.7 534.3,845.0 V868.0 Z" fill="#ece4ff"/>
+<text x="465.0" y="860.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Validador</text>
+<rect x="555.0" y="842.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M555.7,868.0 V845.0 Q555.7,842.7 558.0,842.7 H692.0 Q694.3,842.7 694.3,845.0 V868.0 Z" fill="#ece4ff"/>
+<text x="625.0" y="860.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Config</text>
+<rect x="395.0" y="894.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,920.0 V897.0 Q395.7,894.7 398.0,894.7 H532.0 Q534.3,894.7 534.3,897.0 V920.0 Z" fill="#ece4ff"/>
+<text x="465.0" y="912.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Archivo</text>
+<rect x="555.0" y="894.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M555.7,920.0 V897.0 Q555.7,894.7 558.0,894.7 H692.0 Q694.3,894.7 694.3,897.0 V920.0 Z" fill="#ece4ff"/>
+<text x="625.0" y="912.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Correo</text>
+<rect x="395.0" y="946.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M395.7,972.0 V949.0 Q395.7,946.7 398.0,946.7 H532.0 Q534.3,946.7 534.3,949.0 V972.0 Z" fill="#ece4ff"/>
+<text x="465.0" y="964.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Registro</text>
+<rect x="555.0" y="946.0" width="140.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M555.7,972.0 V949.0 Q555.7,946.7 558.0,946.7 H692.0 Q694.3,946.7 694.3,949.0 V972.0 Z" fill="#ece4ff"/>
+<text x="625.0" y="964.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Fecha</text>
+<polyline points="565.0,179.0 565.0,230.0 195.0,230.0 195.0,300.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="195.0,300.0 189.0,289.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="195.0,300.0 201.0,289.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="380.0" y="223.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">usa</text>
+<polyline points="345.0,330.0 395.0,330.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="395.0,330.0 384.0,336.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="395.0,330.0 384.0,324.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="545.0,380.0 545.0,450.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="545.0,450.0 539.0,439.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="545.0,450.0 551.0,439.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="590.0" y="432.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">despacha a</text>
+<polyline points="395.0,500.0 345.0,500.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="345.0,500.0 356.0,494.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="345.0,500.0 356.0,506.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="135.0,380.0 135.0,450.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="135.0,450.0 129.0,439.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="135.0,450.0 141.0,439.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="45.0" y="1085.0" width="300.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M45.7,1125.0 V1088.0 Q45.7,1085.7 48.0,1085.7 H342.0 Q344.3,1085.7 344.3,1088.0 V1125.0 Z" fill="#ece4ff"/>
+<text x="195.0" y="1101.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«base de datos»</text>
+<text x="195.0" y="1117.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">MariaDB</text>
+<polyline points="45.0,1125.0 345.0,1125.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="54.0" y="1143.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">tablas, vistas, triggers de auditoría</text>
+<text x="54.0" y="1159.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">cuentas nl_app y nl_lectura</text>
+<polyline points="395.0,700.0 367.0,700.0 367.0,1125.0 345.0,1125.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="345.0,1125.0 356.0,1119.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="345.0,1125.0 356.0,1131.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="385.0" y="1060.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">PDO</text>
+<rect x="830.0" y="140.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,166.0 V143.0 Q830.7,140.7 833.0,140.7 H1097.0 Q1099.3,140.7 1099.3,143.0 V166.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="158.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">AuthControlador</text>
+<polyline points="830.0,153.0 790.0,153.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="204.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,230.0 V207.0 Q830.7,204.7 833.0,204.7 H1097.0 Q1099.3,204.7 1099.3,207.0 V230.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="222.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">PerfilControlador</text>
+<polyline points="830.0,217.0 790.0,217.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="268.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,294.0 V271.0 Q830.7,268.7 833.0,268.7 H1097.0 Q1099.3,268.7 1099.3,271.0 V294.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="286.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">CatalogoControlador</text>
+<polyline points="830.0,281.0 790.0,281.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="332.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,358.0 V335.0 Q830.7,332.7 833.0,332.7 H1097.0 Q1099.3,332.7 1099.3,335.0 V358.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="350.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">TorneoControlador</text>
+<polyline points="830.0,345.0 790.0,345.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="396.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,422.0 V399.0 Q830.7,396.7 833.0,396.7 H1097.0 Q1099.3,396.7 1099.3,399.0 V422.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="414.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">InscripcionControlador</text>
+<polyline points="830.0,409.0 790.0,409.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="460.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,486.0 V463.0 Q830.7,460.7 833.0,460.7 H1097.0 Q1099.3,460.7 1099.3,463.0 V486.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="478.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EquipoControlador</text>
+<polyline points="830.0,473.0 790.0,473.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="524.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,550.0 V527.0 Q830.7,524.7 833.0,524.7 H1097.0 Q1099.3,524.7 1099.3,527.0 V550.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="542.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">CalendarioControlador</text>
+<polyline points="830.0,537.0 790.0,537.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="588.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,614.0 V591.0 Q830.7,588.7 833.0,588.7 H1097.0 Q1099.3,588.7 1099.3,591.0 V614.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="606.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ResultadoControlador</text>
+<polyline points="830.0,601.0 790.0,601.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<rect x="830.0" y="652.0" width="270.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M830.7,678.0 V655.0 Q830.7,652.7 833.0,652.7 H1097.0 Q1099.3,652.7 1099.3,655.0 V678.0 Z" fill="#ece4ff"/>
+<text x="965.0" y="670.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">AdminControlador</text>
+<polyline points="830.0,665.0 790.0,665.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="790.0,153.0 790.0,525.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polygon points="695.0,525.0 710.0,517.0 710.0,533.0" fill="#fff" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="790.0,525.0 710.0,525.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<path d="M780,748 H998 L1010,760 V805 H780 Z" fill="#fffbe8" stroke="#b08a2e" stroke-width="1.1"/>
+<path d="M998,748 V760 H1010" fill="none" stroke="#b08a2e" stroke-width="1.1"/>
+<text x="789.0" y="766.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">Cada controlador valida los datos</text>
+<text x="789.0" y="781.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">y los permisos del rol;</text>
+<text x="789.0" y="796.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">nunca escribe SQL.</text>
+<rect x="1185.0" y="140.0" width="330.0" height="112.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1185.7,166.0 V143.0 Q1185.7,140.7 1188.0,140.7 H1512.0 Q1514.3,140.7 1514.3,143.0 V166.0 Z" fill="#ece4ff"/>
+<text x="1350.0" y="158.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">GestorCompetencia</text>
+<polyline points="1185.0,166.0 1515.0,166.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1185.0,176.0 1515.0,176.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1194.0" y="194.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ generarCalendario(torneo): array</text>
+<text x="1194.0" y="210.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ generarSiguienteRonda(torneo): array</text>
+<text x="1194.0" y="226.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ registrarResultado(partido, local, visitante, ...)</text>
+<text x="1194.0" y="242.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puedeGenerarSiguienteRonda(torneo): bool</text>
+<rect x="1340.0" y="365.0" width="290.0" height="110.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1340.7,405.0 V368.0 Q1340.7,365.7 1343.0,365.7 H1627.0 Q1629.3,365.7 1629.3,368.0 V405.0 Z" fill="#ece4ff"/>
+<text x="1485.0" y="381.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«interface»</text>
+<text x="1485.0" y="397.0" font-size="13" font-weight="700" font-style="italic" fill="#1f1633" text-anchor="middle">ModuloCompetencia</text>
+<polyline points="1340.0,405.0 1630.0,405.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1340.0,415.0 1630.0,415.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1349.0" y="433.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ generarCalendario(participantes, config)</text>
+<text x="1349.0" y="449.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ totalRondas(cantidad, config): int</text>
+<text x="1349.0" y="465.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ admiteEmpates(config): bool</text>
+<rect x="1180.0" y="365.0" width="120.0" height="64.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1180.7,391.0 V368.0 Q1180.7,365.7 1183.0,365.7 H1297.0 Q1299.3,365.7 1299.3,368.0 V391.0 Z" fill="#ece4ff"/>
+<text x="1240.0" y="383.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">FabricaModulos</text>
+<polyline points="1180.0,391.0 1300.0,391.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1180.0,401.0 1300.0,401.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1189.0" y="419.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(codigo)</text>
+<rect x="1185.0" y="560.0" width="180.0" height="64.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1185.7,586.0 V563.0 Q1185.7,560.7 1188.0,560.7 H1362.0 Q1364.3,560.7 1364.3,563.0 V586.0 Z" fill="#ece4ff"/>
+<text x="1275.0" y="578.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ModuloLiga</text>
+<polyline points="1185.0,586.0 1365.0,586.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1185.0,596.0 1365.0,596.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1194.0" y="614.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ generarCalendario(...)</text>
+<rect x="1385.0" y="560.0" width="200.0" height="64.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1385.7,586.0 V563.0 Q1385.7,560.7 1388.0,560.7 H1582.0 Q1584.3,560.7 1584.3,563.0 V586.0 Z" fill="#ece4ff"/>
+<text x="1485.0" y="578.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ModuloEliminacionDirecta</text>
+<polyline points="1385.0,586.0 1585.0,586.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1385.0,596.0 1585.0,596.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1394.0" y="614.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ destinoDelGanador(...)</text>
+<rect x="1605.0" y="560.0" width="170.0" height="64.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1605.7,586.0 V563.0 Q1605.7,560.7 1608.0,560.7 H1772.0 Q1774.3,560.7 1774.3,563.0 V586.0 Z" fill="#ece4ff"/>
+<text x="1690.0" y="578.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ModuloSuizo</text>
+<polyline points="1605.0,586.0 1775.0,586.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<polyline points="1605.0,596.0 1775.0,596.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1614.0" y="614.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ generarRonda(...)</text>
+<polygon points="1485.0,475.0 1493.0,490.0 1477.0,490.0" fill="#fff" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1275.0,560.0 1275.0,530.0 1485.0,530.0 1485.0,490.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polygon points="1485.0,475.0 1493.0,490.0 1477.0,490.0" fill="#fff" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1485.0,560.0 1485.0,530.0 1485.0,530.0 1485.0,490.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polygon points="1485.0,475.0 1493.0,490.0 1477.0,490.0" fill="#fff" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1690.0,560.0 1690.0,530.0 1485.0,530.0 1485.0,490.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1300.0,400.0 1340.0,400.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1340.0,400.0 1329.0,406.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1340.0,400.0 1329.0,394.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1320.0" y="392.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">crea</text>
+<polyline points="1285.0,252.0 1285.0,365.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1285.0,365.0 1279.0,354.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1285.0,365.0 1291.0,354.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1310.0" y="312.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">usa</text>
+<polyline points="1120.0,330.0 1185.0,200.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1185.0,200.0 1185.4,212.5" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1185.0,200.0 1174.7,207.2" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1140.0" y="255.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">usa</text>
+<rect x="785.0" y="925.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M785.7,951.0 V928.0 Q785.7,925.7 788.0,925.7 H962.0 Q964.3,925.7 964.3,928.0 V951.0 Z" fill="#ece4ff"/>
+<text x="875.0" y="943.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Usuario</text>
+<rect x="985.0" y="925.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M985.7,951.0 V928.0 Q985.7,925.7 988.0,925.7 H1162.0 Q1164.3,925.7 1164.3,928.0 V951.0 Z" fill="#ece4ff"/>
+<text x="1075.0" y="943.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Rol</text>
+<rect x="1185.0" y="925.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1185.7,951.0 V928.0 Q1185.7,925.7 1188.0,925.7 H1362.0 Q1364.3,925.7 1364.3,928.0 V951.0 Z" fill="#ece4ff"/>
+<text x="1275.0" y="943.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">TokenUsuario</text>
+<rect x="1385.0" y="925.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1385.7,951.0 V928.0 Q1385.7,925.7 1388.0,925.7 H1562.0 Q1564.3,925.7 1564.3,928.0 V951.0 Z" fill="#ece4ff"/>
+<text x="1475.0" y="943.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">IntentoLogin</text>
+<rect x="1585.0" y="925.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1585.7,951.0 V928.0 Q1585.7,925.7 1588.0,925.7 H1762.0 Q1764.3,925.7 1764.3,928.0 V951.0 Z" fill="#ece4ff"/>
+<text x="1675.0" y="943.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Torneo</text>
+<rect x="785.0" y="991.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M785.7,1017.0 V994.0 Q785.7,991.7 788.0,991.7 H962.0 Q964.3,991.7 964.3,994.0 V1017.0 Z" fill="#ece4ff"/>
+<text x="875.0" y="1009.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Juego</text>
+<rect x="985.0" y="991.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M985.7,1017.0 V994.0 Q985.7,991.7 988.0,991.7 H1162.0 Q1164.3,991.7 1164.3,994.0 V1017.0 Z" fill="#ece4ff"/>
+<text x="1075.0" y="1009.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Modulo</text>
+<rect x="1185.0" y="991.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1185.7,1017.0 V994.0 Q1185.7,991.7 1188.0,991.7 H1362.0 Q1364.3,991.7 1364.3,994.0 V1017.0 Z" fill="#ece4ff"/>
+<text x="1275.0" y="1009.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Participante</text>
+<rect x="1385.0" y="991.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1385.7,1017.0 V994.0 Q1385.7,991.7 1388.0,991.7 H1562.0 Q1564.3,991.7 1564.3,994.0 V1017.0 Z" fill="#ece4ff"/>
+<text x="1475.0" y="1009.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Equipo</text>
+<rect x="1585.0" y="991.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1585.7,1017.0 V994.0 Q1585.7,991.7 1588.0,991.7 H1762.0 Q1764.3,991.7 1764.3,994.0 V1017.0 Z" fill="#ece4ff"/>
+<text x="1675.0" y="1009.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">SolicitudEquipo</text>
+<rect x="785.0" y="1057.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M785.7,1083.0 V1060.0 Q785.7,1057.7 788.0,1057.7 H962.0 Q964.3,1057.7 964.3,1060.0 V1083.0 Z" fill="#ece4ff"/>
+<text x="875.0" y="1075.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Ronda</text>
+<rect x="985.0" y="1057.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M985.7,1083.0 V1060.0 Q985.7,1057.7 988.0,1057.7 H1162.0 Q1164.3,1057.7 1164.3,1060.0 V1083.0 Z" fill="#ece4ff"/>
+<text x="1075.0" y="1075.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Enfrentamiento</text>
+<rect x="1185.0" y="1057.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1185.7,1083.0 V1060.0 Q1185.7,1057.7 1188.0,1057.7 H1362.0 Q1364.3,1057.7 1364.3,1060.0 V1083.0 Z" fill="#ece4ff"/>
+<text x="1275.0" y="1075.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Resultado</text>
+<rect x="1385.0" y="1057.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1385.7,1083.0 V1060.0 Q1385.7,1057.7 1388.0,1057.7 H1562.0 Q1564.3,1057.7 1564.3,1060.0 V1083.0 Z" fill="#ece4ff"/>
+<text x="1475.0" y="1075.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">TablaPosiciones</text>
+<rect x="1585.0" y="1057.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1585.7,1083.0 V1060.0 Q1585.7,1057.7 1588.0,1057.7 H1762.0 Q1764.3,1057.7 1764.3,1060.0 V1083.0 Z" fill="#ece4ff"/>
+<text x="1675.0" y="1075.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Estadisticas</text>
+<rect x="785.0" y="1123.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M785.7,1149.0 V1126.0 Q785.7,1123.7 788.0,1123.7 H962.0 Q964.3,1123.7 964.3,1126.0 V1149.0 Z" fill="#ece4ff"/>
+<text x="875.0" y="1141.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Auditoria</text>
+<rect x="985.0" y="1123.0" width="180.0" height="26.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M985.7,1149.0 V1126.0 Q985.7,1123.7 988.0,1123.7 H1162.0 Q1164.3,1123.7 1164.3,1126.0 V1149.0 Z" fill="#ece4ff"/>
+<text x="1075.0" y="1141.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ConfiguracionSistema</text>
+<polyline points="1060.0,735.0 1060.0,880.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1060.0,880.0 1054.0,869.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1060.0,880.0 1066.0,869.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1085.0" y="815.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">usa</text>
+<polyline points="1450.0,735.0 1450.0,880.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="1450.0,880.0 1444.0,869.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1450.0,880.0 1456.0,869.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1475.0" y="815.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">usa</text>
+<polyline points="760.0,960.0 737.0,960.0 737.0,690.0 695.0,690.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="6 4"/>
+<polyline points="695.0,690.0 706.0,684.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="695.0,690.0 706.0,696.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="745.0" y="872.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="start">SQL (PDO)</text>
+</svg>

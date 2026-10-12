@@ -1,0 +1,140 @@
+@startuml 02_clases_arquitectura
+' NextLeague · Diagrama de clases de la arquitectura (fuente editable del SVG)
+skinparam classAttributeIconSize 0
+hide empty members
+
+component "Vistas (public/)" as vistas
+component "public/api/index.php" as index
+vistas ..> index : HTTP + JSON
+
+package "app/core" {
+  class Aplicacion {
+    + manejar(peticion): Respuesta
+    + router(): Router
+  }
+  class Router {
+    + get/post/put/delete(ruta, accion)
+    + despachar(peticion): Respuesta
+  }
+  class Peticion {
+    + dato(clave)
+    + param(clave)
+    + idRuta(): int
+    + archivo(campo)
+  }
+  abstract class Controlador {
+    # peticion: Peticion
+    # usuario() · idUsuario() · esAdmin()
+    # requerirSesion() · requerirRol(...)
+    # torneoVisible(id) · torneoGestionable(id)
+    # paginacion() · listado(...)
+  }
+  class Respuesta {
+    + exito(mensaje, datos, estado)
+    + error(...) · csv(...) · enviar()
+  }
+  class BaseDatos {
+    - pdo: PDO
+    + filas() · fila() · valor()
+    + insertar() · ejecutar()
+    + transaccion(tarea)
+    + fijarUsuarioAuditoria(id, ip)
+  }
+  class ErrorHttp <<excepción>>
+  class ErrorValidacion <<excepción>>
+  class Sesion
+  class Csrf
+  class Validador
+  class Config
+  class Archivo
+  class Correo
+  class Registro
+  class Fecha
+  ErrorValidacion --|> ErrorHttp
+}
+
+package "app/controladores" {
+  class AuthControlador
+  class PerfilControlador
+  class CatalogoControlador
+  class TorneoControlador
+  class InscripcionControlador
+  class EquipoControlador
+  class CalendarioControlador
+  class ResultadoControlador
+  class AdminControlador
+}
+
+package "app/servicios" {
+  class GestorCompetencia {
+    + generarCalendario(torneo): array
+    + generarSiguienteRonda(torneo): array
+    + registrarResultado(partido, local, visitante, ...)
+    + puedeGenerarSiguienteRonda(torneo): bool
+  }
+}
+
+package "app/modulos" {
+  interface ModuloCompetencia {
+    + generarCalendario(participantes, config)
+    + totalRondas(cantidad, config): int
+    + admiteEmpates(config): bool
+  }
+  class FabricaModulos {
+    + crear(codigo): ModuloCompetencia
+  }
+  class ModuloLiga
+  class ModuloEliminacionDirecta {
+    + destinoDelGanador(...)
+  }
+  class ModuloSuizo {
+    + generarRonda(...)
+  }
+  ModuloLiga ..|> ModuloCompetencia
+  ModuloEliminacionDirecta ..|> ModuloCompetencia
+  ModuloSuizo ..|> ModuloCompetencia
+  FabricaModulos ..> ModuloCompetencia : crea
+}
+
+package "app/modelos" {
+  class Usuario
+  class Rol
+  class TokenUsuario
+  class IntentoLogin
+  class Torneo
+  class Juego
+  class Modulo
+  class Participante
+  class Equipo
+  class SolicitudEquipo
+  class Ronda
+  class Enfrentamiento
+  class Resultado
+  class TablaPosiciones
+  class Estadisticas
+  class Auditoria
+  class ConfiguracionSistema
+}
+
+database "MariaDB" as mariadb
+
+index ..> Aplicacion : usa
+Aplicacion --> Router
+Router ..> Controlador : despacha a
+Controlador --> Peticion
+AuthControlador --|> Controlador
+PerfilControlador --|> Controlador
+CatalogoControlador --|> Controlador
+TorneoControlador --|> Controlador
+InscripcionControlador --|> Controlador
+EquipoControlador --|> Controlador
+CalendarioControlador --|> Controlador
+ResultadoControlador --|> Controlador
+AdminControlador --|> Controlador
+"app/controladores" ..> GestorCompetencia : usa
+"app/controladores" ..> "app/modelos" : usa
+GestorCompetencia ..> FabricaModulos : usa
+"app/modulos" ..> "app/modelos" : usa
+"app/modelos" ..> BaseDatos : SQL (PDO)
+BaseDatos ..> mariadb : PDO
+@enduml

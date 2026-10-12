@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1320" width="1900" height="1320" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="25.0" y="975.0" width="890.0" height="330.0" rx="8" fill="none" stroke="#6b5b8a" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="37.0" y="995.0" font-size="12.5" font-weight="700" font-style="normal" fill="#6b5b8a" text-anchor="start">Seguridad, auditoría y configuración del sistema</text>
+<text x="40.0" y="44.0" font-size="22" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="start">NextLeague · Diagrama de clases del dominio</text>
+<text x="40.0" y="68.0" font-size="12.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="start">Entidades del sistema (una por tabla de la base), sus atributos, los métodos principales de cada modelo (app/modelos) y las relaciones con su multiplicidad.</text>
+<rect x="40.0" y="100.0" width="230.0" height="146.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M40.7,126.0 V103.0 Q40.7,100.7 43.0,100.7 H267.0 Q269.3,100.7 269.3,103.0 V126.0 Z" fill="#ece4ff"/>
+<text x="155.0" y="118.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Rol</text>
+<polyline points="40.0,126.0 270.0,126.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="144.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_rol: int</text>
+<text x="49.0" y="160.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ codigo: string</text>
+<text x="49.0" y="176.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string</text>
+<text x="49.0" y="192.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ descripcion: string</text>
+<polyline points="40.0,202.0 270.0,202.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="220.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ listar(): array</text>
+<text x="49.0" y="236.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ idPorCodigo(codigo): int</text>
+<rect x="330.0" y="100.0" width="260.0" height="162.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M330.7,126.0 V103.0 Q330.7,100.7 333.0,100.7 H587.0 Q589.3,100.7 589.3,103.0 V126.0 Z" fill="#ece4ff"/>
+<text x="460.0" y="118.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">TokenUsuario</text>
+<polyline points="330.0,126.0 590.0,126.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="339.0" y="144.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_token: int</text>
+<text x="339.0" y="160.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ tipo: TipoToken</text>
+<text x="339.0" y="176.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ selector: string</text>
+<text x="339.0" y="192.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ hash_validador: string</text>
+<text x="339.0" y="208.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ vence: datetime</text>
+<polyline points="330.0,218.0 590.0,218.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="339.0" y="236.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(idUsuario, tipo, minutos)</text>
+<text x="339.0" y="252.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ validar(token, tipo)</text>
+<rect x="900.0" y="100.0" width="270.0" height="162.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M900.7,126.0 V103.0 Q900.7,100.7 903.0,100.7 H1167.0 Q1169.3,100.7 1169.3,103.0 V126.0 Z" fill="#ece4ff"/>
+<text x="1035.0" y="118.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Juego</text>
+<polyline points="900.0,126.0 1170.0,126.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="144.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_juego: int</text>
+<text x="909.0" y="160.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string {único}</text>
+<text x="909.0" y="176.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ categoria: Categoria</text>
+<text x="909.0" y="192.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ modalidad_sugerida: Modalidad</text>
+<text x="909.0" y="208.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ icono: string [0..1]</text>
+<polyline points="900.0,218.0 1170.0,218.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="236.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ listar(): array</text>
+<text x="909.0" y="252.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ buscar(id): array</text>
+<rect x="1230.0" y="100.0" width="290.0" height="176.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1230.7,140.0 V103.0 Q1230.7,100.7 1233.0,100.7 H1517.0 Q1519.3,100.7 1519.3,103.0 V140.0 Z" fill="#ece4ff"/>
+<text x="1375.0" y="118.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Modulo</text>
+<text x="1375.0" y="132.0" font-size="10.5" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">{liga | eliminacion_directa | sistema_suizo}</text>
+<polyline points="1230.0,140.0 1520.0,140.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1239.0" y="158.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_modulo: int</text>
+<text x="1239.0" y="174.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ codigo: string {único}</text>
+<text x="1239.0" y="190.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string</text>
+<text x="1239.0" y="206.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ descripcion: string</text>
+<text x="1239.0" y="222.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ habilitado: bool</text>
+<polyline points="1230.0,232.0 1520.0,232.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1239.0" y="250.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ buscarPorCodigo(codigo): array</text>
+<text x="1239.0" y="266.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cambiarHabilitado(id, valor)</text>
+<rect x="40.0" y="300.0" width="300.0" height="290.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M40.7,326.0 V303.0 Q40.7,300.7 43.0,300.7 H337.0 Q339.3,300.7 339.3,303.0 V326.0 Z" fill="#ece4ff"/>
+<text x="190.0" y="318.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Usuario</text>
+<polyline points="40.0,326.0 340.0,326.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="344.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_usuario: int</text>
+<text x="49.0" y="360.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre_usuario: string {único}</text>
+<text x="49.0" y="376.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ correo: string {único}</text>
+<text x="49.0" y="392.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ contrasena_hash: string</text>
+<text x="49.0" y="408.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ foto_perfil: string [0..1]</text>
+<text x="49.0" y="424.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ biografia: string [0..1]</text>
+<text x="49.0" y="440.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ activo: bool</text>
+<text x="49.0" y="456.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ debe_cambiar_contrasena: bool</text>
+<text x="49.0" y="472.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_registro: datetime</text>
+<text x="49.0" y="488.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ ultimo_acceso: datetime [0..1]</text>
+<polyline points="40.0,498.0 340.0,498.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="516.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(nombre, correo, clave, rol): int</text>
+<text x="49.0" y="532.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ buscarPorCorreo(correo): array</text>
+<text x="49.0" y="548.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ verificarContrasena(id, clave): bool</text>
+<text x="49.0" y="564.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ perfilPublico(id): array</text>
+<text x="49.0" y="580.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ actualizar(id, campos)</text>
+<rect x="900.0" y="300.0" width="300.0" height="338.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M900.7,326.0 V303.0 Q900.7,300.7 903.0,300.7 H1197.0 Q1199.3,300.7 1199.3,303.0 V326.0 Z" fill="#ece4ff"/>
+<text x="1050.0" y="318.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Torneo</text>
+<polyline points="900.0,326.0 1200.0,326.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="344.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_torneo: int</text>
+<text x="909.0" y="360.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string</text>
+<text x="909.0" y="376.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ modalidad: Modalidad</text>
+<text x="909.0" y="392.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cupo: int {2..256}</text>
+<text x="909.0" y="408.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ premio: decimal</text>
+<text x="909.0" y="424.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ moneda: Moneda</text>
+<text x="909.0" y="440.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_inicio: date</text>
+<text x="909.0" y="456.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_fin: date</text>
+<text x="909.0" y="472.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ descripcion: string [0..1]</text>
+<text x="909.0" y="488.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ logo: string [0..1]</text>
+<text x="909.0" y="504.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ reglas_pdf: string [0..1]</text>
+<text x="909.0" y="520.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ estado: EstadoTorneo</text>
+<text x="909.0" y="536.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ publicado: bool</text>
+<text x="909.0" y="552.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_creacion: datetime</text>
+<polyline points="900.0,562.0 1200.0,562.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="580.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(datos, configuracion): int</text>
+<text x="909.0" y="596.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ listar(filtros, pagina): array</text>
+<text x="909.0" y="612.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cambiarEstado(id, estado)</text>
+<text x="909.0" y="628.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ configuracion(id): array</text>
+<rect x="1320.0" y="330.0" width="290.0" height="166.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1320.7,356.0 V333.0 Q1320.7,330.7 1323.0,330.7 H1607.0 Q1609.3,330.7 1609.3,333.0 V356.0 Z" fill="#ece4ff"/>
+<text x="1465.0" y="348.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ConfiguracionTorneo</text>
+<polyline points="1320.0,356.0 1610.0,356.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="374.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puntos_victoria: int = 3</text>
+<text x="1329.0" y="390.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puntos_empate: int = 1</text>
+<text x="1329.0" y="406.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puntos_derrota: int = 0</text>
+<text x="1329.0" y="422.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ ida_y_vuelta: bool</text>
+<text x="1329.0" y="438.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ rondas_suizo: int [0..1]</text>
+<text x="1329.0" y="454.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ permitir_empates: bool</text>
+<text x="1329.0" y="470.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ permitir_correcciones: bool</text>
+<text x="1329.0" y="486.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ max_integrantes_equipo: int [0..1]</text>
+<rect x="470.0" y="430.0" width="270.0" height="162.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M470.7,456.0 V433.0 Q470.7,430.7 473.0,430.7 H737.0 Q739.3,430.7 739.3,433.0 V456.0 Z" fill="#ece4ff"/>
+<text x="605.0" y="448.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Equipo</text>
+<polyline points="470.0,456.0 740.0,456.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="479.0" y="474.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_equipo: int</text>
+<text x="479.0" y="490.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string</text>
+<text x="479.0" y="506.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ logo: string [0..1]</text>
+<text x="479.0" y="522.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_creacion: datetime</text>
+<polyline points="470.0,532.0 740.0,532.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="479.0" y="550.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(idTorneo, nombre, capitan)</text>
+<text x="479.0" y="566.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ agregarMiembro(idEquipo, idUsuario)</text>
+<text x="479.0" y="582.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ miembros(idEquipo): array</text>
+<rect x="345.0" y="640.0" width="170.0" height="54.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M345.7,666.0 V643.0 Q345.7,640.7 348.0,640.7 H512.0 Q514.3,640.7 514.3,643.0 V666.0 Z" fill="#ece4ff"/>
+<text x="430.0" y="658.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EquipoMiembro</text>
+<polyline points="345.0,666.0 515.0,666.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="354.0" y="684.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_union: datetime</text>
+<rect x="470.0" y="740.0" width="290.0" height="146.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M470.7,766.0 V743.0 Q470.7,740.7 473.0,740.7 H757.0 Q759.3,740.7 759.3,743.0 V766.0 Z" fill="#ece4ff"/>
+<text x="615.0" y="758.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">SolicitudEquipo</text>
+<polyline points="470.0,766.0 760.0,766.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="479.0" y="784.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_solicitud: int</text>
+<text x="479.0" y="800.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ estado: EstadoSolicitud</text>
+<text x="479.0" y="816.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_solicitud: datetime</text>
+<text x="479.0" y="832.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_respuesta: datetime [0..1]</text>
+<polyline points="470.0,842.0 760.0,842.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="479.0" y="860.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(idEquipo, idUsuario): int</text>
+<text x="479.0" y="876.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ responder(id, estado)</text>
+<rect x="900.0" y="720.0" width="260.0" height="128.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M900.7,760.0 V723.0 Q900.7,720.7 903.0,720.7 H1157.0 Q1159.3,720.7 1159.3,723.0 V760.0 Z" fill="#ece4ff"/>
+<text x="1030.0" y="738.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Participante</text>
+<text x="1030.0" y="752.0" font-size="10.5" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">{xor: un usuario o un equipo}</text>
+<polyline points="900.0,760.0 1160.0,760.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="778.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_participante: int</text>
+<text x="909.0" y="794.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_inscripcion: datetime</text>
+<polyline points="900.0,804.0 1160.0,804.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="909.0" y="822.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ inscribirUsuario(idTorneo, idUsuario)</text>
+<text x="909.0" y="838.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ inscribirEquipo(idTorneo, idEquipo)</text>
+<rect x="1320.0" y="560.0" width="290.0" height="162.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1320.7,586.0 V563.0 Q1320.7,560.7 1323.0,560.7 H1607.0 Q1609.3,560.7 1609.3,563.0 V586.0 Z" fill="#ece4ff"/>
+<text x="1465.0" y="578.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Ronda</text>
+<polyline points="1320.0,586.0 1610.0,586.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="604.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_ronda: int</text>
+<text x="1329.0" y="620.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ numero: int</text>
+<text x="1329.0" y="636.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ nombre: string [0..1]</text>
+<text x="1329.0" y="652.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ estado: EstadoRonda</text>
+<text x="1329.0" y="668.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha: date [0..1]</text>
+<polyline points="1320.0,678.0 1610.0,678.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="696.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ crear(idTorneo, numero): int</text>
+<text x="1329.0" y="712.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cerrarTodas(idTorneo)</text>
+<rect x="1320.0" y="790.0" width="290.0" height="178.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1320.7,816.0 V793.0 Q1320.7,790.7 1323.0,790.7 H1607.0 Q1609.3,790.7 1609.3,793.0 V816.0 Z" fill="#ece4ff"/>
+<text x="1465.0" y="808.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Enfrentamiento</text>
+<polyline points="1320.0,816.0 1610.0,816.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="834.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_enfrentamiento: int</text>
+<text x="1329.0" y="850.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ posicion: int</text>
+<text x="1329.0" y="866.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ es_pase_libre: bool</text>
+<text x="1329.0" y="882.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_hora: datetime [0..1]</text>
+<text x="1329.0" y="898.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ lugar: string [0..1]</text>
+<text x="1329.0" y="914.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ estado: EstadoPartido</text>
+<polyline points="1320.0,924.0 1610.0,924.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="942.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ programar(id, fechaHora, lugar)</text>
+<text x="1329.0" y="958.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ finalizar(id, idGanador)</text>
+<rect x="1320.0" y="1030.0" width="290.0" height="194.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1320.7,1056.0 V1033.0 Q1320.7,1030.7 1323.0,1030.7 H1607.0 Q1609.3,1030.7 1609.3,1033.0 V1056.0 Z" fill="#ece4ff"/>
+<text x="1465.0" y="1048.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Resultado</text>
+<polyline points="1320.0,1056.0 1610.0,1056.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="1074.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_resultado: int</text>
+<text x="1329.0" y="1090.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puntaje_local: int</text>
+<text x="1329.0" y="1106.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ puntaje_visitante: int</text>
+<text x="1329.0" y="1122.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha_carga: datetime</text>
+<text x="1329.0" y="1138.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ vigente: bool</text>
+<text x="1329.0" y="1154.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ observacion: string [0..1]</text>
+<text x="1329.0" y="1170.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ cargado_por: Usuario [0..1]</text>
+<polyline points="1320.0,1180.0 1610.0,1180.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1329.0" y="1198.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ registrar(partido, local, visitante, ...)</text>
+<text x="1329.0" y="1214.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ historial(idPartido): array</text>
+<rect x="40.0" y="1010.0" width="290.0" height="274.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M40.7,1036.0 V1013.0 Q40.7,1010.7 43.0,1010.7 H327.0 Q329.3,1010.7 329.3,1013.0 V1036.0 Z" fill="#ece4ff"/>
+<text x="185.0" y="1028.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Auditoria</text>
+<polyline points="40.0,1036.0 330.0,1036.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="1054.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_auditoria: bigint</text>
+<text x="49.0" y="1070.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha: datetime</text>
+<text x="49.0" y="1086.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ origen: {bd | app}</text>
+<text x="49.0" y="1102.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ accion: string</text>
+<text x="49.0" y="1118.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ tabla: string [0..1]</text>
+<text x="49.0" y="1134.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_registro: string [0..1]</text>
+<text x="49.0" y="1150.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_usuario: int [0..1]</text>
+<text x="49.0" y="1166.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ usuario_bd: string</text>
+<text x="49.0" y="1182.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ ip: string [0..1]</text>
+<text x="49.0" y="1198.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ valores_anteriores: json</text>
+<text x="49.0" y="1214.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ valores_nuevos: json</text>
+<text x="49.0" y="1230.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ detalle: string [0..1]</text>
+<polyline points="40.0,1240.0 330.0,1240.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="49.0" y="1258.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ registrarEvento(accion, detalle)</text>
+<text x="49.0" y="1274.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ listar(filtros): array</text>
+<rect x="350.0" y="1010.0" width="260.0" height="162.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M350.7,1036.0 V1013.0 Q350.7,1010.7 353.0,1010.7 H607.0 Q609.3,1010.7 609.3,1013.0 V1036.0 Z" fill="#ece4ff"/>
+<text x="480.0" y="1028.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">IntentoLogin</text>
+<polyline points="350.0,1036.0 610.0,1036.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="359.0" y="1054.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ id_intento: bigint</text>
+<text x="359.0" y="1070.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ correo: string</text>
+<text x="359.0" y="1086.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ ip: string</text>
+<text x="359.0" y="1102.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ exitoso: bool</text>
+<text x="359.0" y="1118.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ fecha: datetime</text>
+<polyline points="350.0,1128.0 610.0,1128.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="359.0" y="1146.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ registrar(correo, ip, exitoso)</text>
+<text x="359.0" y="1162.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ minutosDeBloqueo(correo, ip)</text>
+<rect x="630.0" y="1010.0" width="270.0" height="146.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M630.7,1036.0 V1013.0 Q630.7,1010.7 633.0,1010.7 H897.0 Q899.3,1010.7 899.3,1013.0 V1036.0 Z" fill="#ece4ff"/>
+<text x="765.0" y="1028.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">ConfiguracionSistema</text>
+<polyline points="630.0,1036.0 900.0,1036.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="639.0" y="1054.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ clave: string {PK}</text>
+<text x="639.0" y="1070.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ valor: string</text>
+<text x="639.0" y="1086.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ tipo: {texto | numero | booleano}</text>
+<text x="639.0" y="1102.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ descripcion: string</text>
+<polyline points="630.0,1112.0 900.0,1112.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="639.0" y="1130.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ obtener(clave): string</text>
+<text x="639.0" y="1146.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">+ actualizar(valores)</text>
+<path d="M350,1190 H888 L900,1202 V1247 H350 Z" fill="#fffbe8" stroke="#b08a2e" stroke-width="1.1"/>
+<path d="M888,1190 V1202 H900" fill="none" stroke="#b08a2e" stroke-width="1.1"/>
+<text x="359.0" y="1208.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">Los triggers de la base completan la auditoría en cada INSERT, UPDATE y DELETE,</text>
+<text x="359.0" y="1223.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">con los valores anteriores y nuevos en JSON y el usuario de @id_usuario_app.</text>
+<text x="359.0" y="1238.0" font-size="11" font-weight="400" font-style="normal" fill="#5c4512" text-anchor="start">Los intentos de ingreso se cuentan por correo e IP para bloquear tras 5 fallos.</text>
+<rect x="1665.0" y="100.0" width="200.0" height="100.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,140.0 V103.0 Q1665.7,100.7 1668.0,100.7 H1862.0 Q1864.3,100.7 1864.3,103.0 V140.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="116.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="132.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Categoria</text>
+<polyline points="1665.0,140.0 1865.0,140.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="158.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">deportivo</text>
+<text x="1674.0" y="174.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">mental</text>
+<text x="1674.0" y="190.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">electronico</text>
+<rect x="1665.0" y="218.0" width="200.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,258.0 V221.0 Q1665.7,218.7 1668.0,218.7 H1862.0 Q1864.3,218.7 1864.3,221.0 V258.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="234.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="250.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Modalidad</text>
+<polyline points="1665.0,258.0 1865.0,258.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="276.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">individual</text>
+<text x="1674.0" y="292.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">equipos</text>
+<rect x="1665.0" y="320.0" width="200.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,360.0 V323.0 Q1665.7,320.7 1668.0,320.7 H1862.0 Q1864.3,320.7 1864.3,323.0 V360.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="336.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="352.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">Moneda</text>
+<polyline points="1665.0,360.0 1865.0,360.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="378.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">UYU</text>
+<text x="1674.0" y="394.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">USD</text>
+<rect x="1665.0" y="422.0" width="200.0" height="116.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,462.0 V425.0 Q1665.7,422.7 1668.0,422.7 H1862.0 Q1864.3,422.7 1864.3,425.0 V462.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="438.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="454.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EstadoTorneo</text>
+<polyline points="1665.0,462.0 1865.0,462.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="480.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">pendiente</text>
+<text x="1674.0" y="496.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">en_curso</text>
+<text x="1674.0" y="512.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">finalizado</text>
+<text x="1674.0" y="528.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">cancelado</text>
+<rect x="1665.0" y="556.0" width="200.0" height="100.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,596.0 V559.0 Q1665.7,556.7 1668.0,556.7 H1862.0 Q1864.3,556.7 1864.3,559.0 V596.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="572.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="588.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EstadoRonda</text>
+<polyline points="1665.0,596.0 1865.0,596.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="614.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">borrador</text>
+<text x="1674.0" y="630.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">publicada</text>
+<text x="1674.0" y="646.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">cerrada</text>
+<rect x="1665.0" y="674.0" width="200.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,714.0 V677.0 Q1665.7,674.7 1668.0,674.7 H1862.0 Q1864.3,674.7 1864.3,677.0 V714.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="690.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="706.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EstadoPartido</text>
+<polyline points="1665.0,714.0 1865.0,714.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="732.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">pendiente</text>
+<text x="1674.0" y="748.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">finalizado</text>
+<rect x="1665.0" y="776.0" width="200.0" height="100.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,816.0 V779.0 Q1665.7,776.7 1668.0,776.7 H1862.0 Q1864.3,776.7 1864.3,779.0 V816.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="792.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="808.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">EstadoSolicitud</text>
+<polyline points="1665.0,816.0 1865.0,816.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="834.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">pendiente</text>
+<text x="1674.0" y="850.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">aceptada</text>
+<text x="1674.0" y="866.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">rechazada</text>
+<rect x="1665.0" y="894.0" width="200.0" height="84.0" rx="3" fill="#fff" stroke="#3b1d6e" stroke-width="1.4"/>
+<path d="M1665.7,934.0 V897.0 Q1665.7,894.7 1668.0,894.7 H1862.0 Q1864.3,894.7 1864.3,897.0 V934.0 Z" fill="#f6f3fa"/>
+<text x="1765.0" y="910.0" font-size="10.5" font-weight="400" font-style="normal" fill="#6b5b8a" text-anchor="middle">«enumeration»</text>
+<text x="1765.0" y="926.0" font-size="13" font-weight="700" font-style="normal" fill="#1f1633" text-anchor="middle">TipoToken</text>
+<polyline points="1665.0,934.0 1865.0,934.0" fill="none" stroke="#3b1d6e" stroke-width="1.1"/>
+<text x="1674.0" y="952.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">recuperacion</text>
+<text x="1674.0" y="968.0" font-size="11.5" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">recordarme</text>
+<polyline points="155.0,246.0 155.0,300.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="160.9" y="262.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="142.9" y="292.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="185.0" y="278.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">tiene</text>
+<polygon points="335.0,300.0 340.5,291.0 335.0,282.0 329.5,291.0" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="335.0,282.0 335.0,262.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="319.0" y="294.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="341.0" y="276.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="340.0,360.0 900.0,360.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="352.0" y="355.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="886.0" y="354.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="620.0" y="352.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">organiza ▸</text>
+<text x="860.0" y="378.0" font-size="10.5" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="end">organizador</text>
+<polyline points="1035.0,262.0 1035.0,300.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1040.9" y="278.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1022.9" y="292.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="1375.0,276.0 1375.0,288.0 1180.0,288.0 1180.0,300.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1381.0" y="290.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1186.0" y="298.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="1252.0" y="300.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">formato</text>
+<polygon points="1200.0,380.0 1209.0,385.5 1218.0,380.0 1209.0,374.5" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1218.0,380.0 1320.0,380.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1240.0" y="374.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1306.0" y="374.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<polygon points="900.0,470.0 891.0,464.5 882.0,470.0 891.0,475.5" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="882.0,470.0 740.0,470.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="852.0" y="464.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="746.0" y="464.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="340.0,450.0 470.0,450.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="346.0" y="444.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">0..1</text>
+<text x="456.0" y="444.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="405.0" y="466.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">capitán</text>
+<polyline points="340.0,545.0 470.0,545.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="346.0" y="539.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="456.0" y="539.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="405.0" y="538.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">integra</text>
+<polyline points="430.0,545.0 430.0,640.0" fill="none" stroke="#4c2a85" stroke-width="1.3" stroke-dasharray="5 4"/>
+<polygon points="605.0,592.0 599.5,601.0 605.0,610.0 610.5,601.0" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="605.0,610.0 605.0,740.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="613.0" y="640.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="613.0" y="734.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="300.0,590.0 300.0,800.0 470.0,800.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="306.0" y="606.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="456.0" y="794.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="385.0" y="792.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">solicita</text>
+<polygon points="980.0,638.0 974.5,647.0 980.0,656.0 985.5,647.0" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="980.0,656.0 980.0,720.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="988.0" y="686.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="988.0" y="714.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="900.0,755.0 790.0,755.0 790.0,560.0 740.0,560.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="870.0" y="749.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">0..1</text>
+<text x="746.0" y="554.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">0..1</text>
+<text x="845.0" y="772.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">se inscribe como</text>
+<polyline points="960.0,848.0 960.0,930.0 250.0,930.0 250.0,590.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="968.0" y="866.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="256.0" y="606.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">0..1</text>
+<text x="600.0" y="922.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">juega como</text>
+<polygon points="1200.0,600.0 1209.0,605.5 1218.0,600.0 1209.0,594.5" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1218.0,600.0 1320.0,600.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1240.0" y="594.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1306.0" y="594.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polygon points="1465.0,722.0 1459.5,731.0 1465.0,740.0 1470.5,731.0" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1465.0,740.0 1465.0,790.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1449.0" y="752.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1473.0" y="784.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<polyline points="1320.0,820.0 1160.0,820.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1306.0" y="814.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="1166.0" y="814.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">0..1</text>
+<text x="1240.0" y="840.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">local · visitante · ganador</text>
+<polygon points="1465.0,968.0 1459.5,977.0 1465.0,986.0 1470.5,977.0" fill="#4c2a85" stroke="#4c2a85" stroke-width="1.3"/>
+<polyline points="1465.0,986.0 1465.0,1030.0" fill="none" stroke="#4c2a85" stroke-width="1.3"/>
+<text x="1449.0" y="998.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">1</text>
+<text x="1473.0" y="1024.0" font-size="11" font-weight="400" font-style="normal" fill="#1f1633" text-anchor="start">*</text>
+<text x="1512.0" y="1008.0" font-size="11" font-weight="400" font-style="italic" fill="#6b5b8a" text-anchor="middle">historial</text>
+</svg>

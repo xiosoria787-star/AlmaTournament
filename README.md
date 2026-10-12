@@ -14,8 +14,16 @@ Hecha en PHP sin frameworks (patrón MVC con POO), MySQL/MariaDB y HTML, CSS y J
 | `app/modulos` | Liga, eliminación directa, suizo |
 | `app/servicios` | Reglas de la competencia |
 | `public/` | Páginas (vistas) y la API en `public/api/` |
-| `database/` | Scripts SQL, instalador y migración |
+| `database/` | Scripts SQL, instalador, migración y datos de prueba |
+| `docker/`, `scripts/` | Instalación con Docker y en el servidor AlmaLinux |
+| `docs/` | Diagramas UML, casos de uso y capturas de las vistas |
 | `tests/` | Tests con PHPUnit (`unit`, `integracion`) y Cypress (`e2e`) |
+
+## Documentación
+
+- [Diagramas UML](docs/uml/): [clases del dominio](docs/uml/01_clases_dominio.svg), [clases de la arquitectura](docs/uml/02_clases_arquitectura.svg), casos de uso ([visitante y participante](docs/uml/03a_casos_de_uso_visitante_participante.svg), [organizador](docs/uml/03b_casos_de_uso_organizador.svg), [administrador](docs/uml/03c_casos_de_uso_administrador.svg)) y [despliegue](docs/uml/04_despliegue.svg). Cada uno tiene su fuente en PlantUML (`.puml`) para editarlo.
+- [Especificación de casos de uso](docs/casos_de_uso.md): 37 casos con sus flujos, las reglas de negocio y la matriz de actores. También en [PDF](docs/casos_de_uso.pdf).
+- [Capturas de las vistas](docs/capturas/): cada pantalla con los datos de prueba, en PC y en celular. Se regeneran con `npm run capturas`.
 
 ## Instalación local (XAMPP)
 
@@ -25,9 +33,9 @@ Necesitás Apache y MySQL de XAMPP encendidos. En XAMPP, `php` es `C:\xampp\php\
    ```
    mklink /J C:\xampp\htdocs\nextleague "C:\ruta\al\proyecto"
    ```
-2. Crear la base de datos (con tablas, vistas, triggers de auditoría y usuarios de MySQL):
+2. Crear la base de datos (con tablas, vistas, triggers de auditoría y usuarios de MySQL). Con `--datos-prueba` se cargan además los datos de prueba:
    ```
-   php database/instalar.php --bd=nextleague_v2
+   php database/instalar.php --bd=nextleague_v2 --datos-prueba
    ```
 3. (Opcional) Copiar `config.ejemplo.php` como `config.php` si necesitás otros datos de conexión, o si la carpeta en `htdocs` tiene otro nombre (en ese caso cambiá `url_publica`).
 4. Abrir http://localhost/nextleague/
@@ -49,8 +57,16 @@ y abrir http://127.0.0.1:8080
 | Participantes | `jugador_demo1` a `jugador_demo6` | `jugador_demo1@demo.uy` … `jugador_demo6@demo.uy` | `Demo#2026` |
 
 - `admin` es el administrador inicial que crea `02_datos_base.sql`. En el primer ingreso obliga a cambiar la contraseña; en el servidor hay que cambiarla sí o sí.
-- Las cuentas `_demo` son de los datos de demostración, que por ahora existen solo en la base de desarrollo donde se cargaron (no las crea `instalar.php`).
+- Las cuentas `_demo` y las otras 66 de los datos de prueba (organizadores como `club_atlantico` o `esports_uy`, y participantes) usan la misma contraseña, `Demo#2026`. Existen solo si la base se instaló con los datos de prueba.
 - Las cuentas de las pruebas automáticas (`admin_e2e`, `orga_e2e`, `jugador_e2e1`…) existen solo en `nextleague_e2e_test`, que Cypress vuelve a crear en cada corrida. Su contraseña está en `cypress.config.js`.
+
+### Datos de prueba
+
+`database/06_datos_prueba.sql` carga más de 50 registros de cada parte del sistema, como pide la letra: 75 usuarios, 50 juegos, 54 torneos en los tres formatos y los cuatro estados, 163 equipos con 759 integrantes y 789 solicitudes, 338 participantes, 130 rondas, 410 partidos, 319 resultados (con correcciones), 77 intentos de ingreso y la auditoría que generan los triggers al cargarlos. Se carga con `instalar.php --datos-prueba`, o en Docker con `NL_DATOS_PRUEBA=1` antes de instalar la base.
+
+- Las fechas son relativas al día de la carga: los torneos con la inscripción abierta quedan en el futuro y los terminados en el pasado, se carguen cuando se carguen.
+- El archivo lo arma `php database/herramientas/generar_datos_prueba.php` con la misma API que usa la página (como los tests de integración), así que cumple todas las reglas. Tarda unos minutos.
+- No cargarlos en un servidor con datos reales: todas sus cuentas comparten una contraseña conocida.
 
 Para migrar una base de la versión anterior sin perder datos (hacé un respaldo antes):
 ```
@@ -84,10 +100,13 @@ Para llevar el sistema a un servidor, o para probarlo como va a quedar ahí, sin
 ### En el servidor AlmaLinux (producción)
 
 ```
-git clone -b mejoras-letra <url-del-repositorio> nextleague
-cd nextleague
+sudo dnf -y install git
+sudo git clone -b nextleague https://github.com/xiosoria787-star/AlmaTournament.git /opt/nextleague
+cd /opt/nextleague
 sudo bash scripts/instalar_almalinux.sh
 ```
+
+Para la demostración con datos de prueba, el último comando es `sudo bash scripts/instalar_almalinux.sh --datos-prueba`.
 
 El script instala Docker si hace falta (desde el repositorio oficial), crea el `.env` con claves al azar, los puertos 80 y 443 y el modo producción, y pregunta la dirección del sitio. Después abre esos puertos en firewalld, levanta los contenedores y prueba que el sitio responda. Para actualizar, hacé `git pull` y volvé a ejecutarlo: no cambia el `.env` ni los datos. Ojo: si cambia la estructura de la base, el cambio no se aplica solo sobre una base ya instalada.
 
@@ -109,6 +128,7 @@ Recorren el sitio en un navegador real (Chrome), como lo haría una persona: reg
 npm install        (una sola vez: descarga Cypress)
 npm run e2e        (corre todas las pruebas)
 npm run e2e:abrir  (abre Cypress para verlas paso a paso)
+npm run capturas   (vuelve a sacar las capturas de docs/capturas)
 ```
 
 Cypress levanta solo un servidor en el puerto 8081 contra la base `nextleague_e2e_test`, que se vuelve a crear con datos conocidos antes de cada archivo de pruebas (`tests/e2e/preparar_base.php`): no tocan los datos de desarrollo. Las capturas de cada pantalla quedan en `tests/e2e/screenshots/`. Si PHP no está en `C:\xampp\php\php.exe`, indicá la ruta en la variable `NL_PHP`.

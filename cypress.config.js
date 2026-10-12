@@ -68,6 +68,15 @@ module.exports = defineConfig({
         expose: { clave: CLAVE_PRUEBA },
         async setupNodeEvents(on, config) {
             await levantarServidor(on);
+            // Las capturas de las vistas van a la documentación, con su nombre:
+            // docs/capturas/escritorio/01-inicio.png, docs/capturas/celular/...
+            on('after:screenshot', (detalles) => {
+                if (!detalles.path.replace(/\\/g, '/').includes('/vistas.cy.js/')) return;
+                const destino = path.join(__dirname, 'docs', 'capturas', `${detalles.name}.png`);
+                fs.mkdirSync(path.dirname(destino), { recursive: true });
+                fs.renameSync(detalles.path, destino);
+                return { path: destino };
+            });
             // Cada corrida empieza un registro nuevo
             on('before:run', () => {
                 fs.mkdirSync(path.dirname(REGISTRO), { recursive: true });
@@ -86,6 +95,11 @@ module.exports = defineConfig({
                     const salida = execFileSync(PHP, ['tests/e2e/simular_tiempo.php'], {
                         cwd: __dirname, encoding: 'utf8', env: { ...process.env, NL_SIMULAR: JSON.stringify(pedido) },
                     });
+                    return JSON.parse(salida);
+                },
+                // Para las capturas (npm run capturas): la base con los datos de prueba
+                cargarDatosDePrueba() {
+                    const salida = execFileSync(PHP, ['tests/e2e/datos_de_prueba.php'], { cwd: __dirname, encoding: 'utf8' });
                     return JSON.parse(salida);
                 },
                 // Agrega al registro los pasos de una prueba que terminó
